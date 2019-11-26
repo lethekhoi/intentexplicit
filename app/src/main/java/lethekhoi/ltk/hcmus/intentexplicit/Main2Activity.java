@@ -12,9 +12,13 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        //nhan dang string
+        //1: nhan dang string
+        //Intent intent = getIntent();
+        // String chuoi = intent.getStringExtra(Appconst.KEY_STRING);
+        // Log.d("BBB", chuoi);
+        // 2:nhan dang string
         Intent intent = getIntent();
-        String chuoi = intent.getStringExtra(Appconst.KEY_STRING);
-        Log.d("BBB", chuoi);
+        int so = intent.getIntExtra(Appconst.KEY_INT, -1);
+        Log.d("BBB", so + "");
     }
 }
