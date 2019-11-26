@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity {
-    Button btnIntentSendString, btnIntentSendInt;
+    Button btnIntentSendString, btnIntentSendInt, btnIntentSendObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnIntentSendString = findViewById(R.id.buttonIntentString);
         btnIntentSendInt = findViewById(R.id.buttonIntentInt);
+        btnIntentSendObject = findViewById(R.id.buttonIntentObject);
         btnIntentSendString.setOnClickListener(view ->
                 {
                     //statement
@@ -38,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
                     sendIntent(Appconst.KEY_INT, 12345);
                 }
         );
+
+//task : đua object sang generic
+        //task chuyen dang mang object
+        btnIntentSendObject.setOnClickListener(v -> {
+            Sinhvien sinhvien = new Sinhvien("Nguyen Van A", "24");
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            intent.putExtra(Appconst.KEY_OBJECT, sinhvien);
+
+            startActivity(intent);
+        });
     }
 
     private <T> void sendIntent(String key, T value) {

@@ -12,10 +12,16 @@
         style="@style/DefaultButton"
         android:text="Intent Send String" />
 
+
     <Button
         android:id="@+id/buttonIntentInt"
         style="@style/DefaultButton"
         android:layout_below="@id/buttonIntentString"
         android:text="Intent Send Int" />
 
+    <Button
+        android:id="@+id/buttonIntentObject"
+        style="@style/DefaultButton"
+        android:layout_below="@id/buttonIntentInt"
+        android:text="Intent Send Object" />
 </RelativeLayout>
