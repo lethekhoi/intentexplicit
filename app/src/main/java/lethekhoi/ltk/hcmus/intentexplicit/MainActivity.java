@@ -42,14 +42,18 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-//task : đua object sang generic
+        //task : đua object sang generic
         //task chuyen dang mang object
+
         btnIntentSendObject.setOnClickListener(v -> {
             Sinhvien sinhvien = new Sinhvien("Nguyen Van A", "24");
-            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-            intent.putExtra(Appconst.KEY_OBJECT, sinhvien);
+//            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+//            intent.putExtra(Appconst.KEY_OBJECT, sinhvien);
+//
+//            startActivity(intent);
 
-            startActivity(intent);
+            sendIntent(Appconst.KEY_OBJECT, sinhvien);
+
         });
     }
 
@@ -61,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
         if (value instanceof Integer) {
             intent.putExtra(key, (Integer) value);
         }
+
+        if (value instanceof Sinhvien) {
+            intent.putExtra(key, (Serializable) value);
+        }
+
         startActivity(intent);
     }
 
