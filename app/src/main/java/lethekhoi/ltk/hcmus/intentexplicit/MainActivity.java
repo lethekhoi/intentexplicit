@@ -10,9 +10,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnIntentSendString, btnIntentSendInt, btnIntentSendObject;
+    Button btnIntentSendString, btnIntentSendInt, btnIntentSendObject, btnIntentObjectbyParcelable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         btnIntentSendString = findViewById(R.id.buttonIntentString);
         btnIntentSendInt = findViewById(R.id.buttonIntentInt);
         btnIntentSendObject = findViewById(R.id.buttonIntentObject);
+        btnIntentObjectbyParcelable = findViewById(R.id.buttonObjectbyParcelable);
         btnIntentSendString.setOnClickListener(view ->
                 {
                     //statement
@@ -55,6 +57,16 @@ public class MainActivity extends AppCompatActivity {
             sendIntent(Appconst.KEY_OBJECT, sinhvien);
 
         });
+        btnIntentObjectbyParcelable.setOnClickListener(v -> {
+            Sinhvien sinhvien = new Sinhvien("Nguyen Van A", "24");
+            ArrayList<Sinhvien> sinhviens = new ArrayList<>();
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            intent.putExtra(Appconst.KEY_OBJECT_PARCEL, sinhvien);
+
+            startActivity(intent);
+        });
+
+
     }
 
     private <T> void sendIntent(String key, T value) {

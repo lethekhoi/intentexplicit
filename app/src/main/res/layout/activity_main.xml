@@ -24,4 +24,10 @@
         style="@style/DefaultButton"
         android:layout_below="@id/buttonIntentInt"
         android:text="Intent Send Object" />
+
+    <Button
+        android:id="@+id/buttonObjectbyParcelable"
+        style="@style/DefaultButton"
+        android:layout_below="@id/buttonIntentObject"
+        android:text="Intent Send Object by Parcelable" />
 </RelativeLayout>
